@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">New Clinic</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/vects" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="vect[title]" required>
+                    <div class="valid-feedback">looks good</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="vect[location]" required>
+                    <div class="valid-feedback">looks good</div>
+                </div>
+                <!-- <input type="file" name="image" id="image" multiple> -->
+                <!-- <div class="mb-3">
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" id="image" name="vect[image]" required>
+                    <div class="valid-feedback">looks good</div>
+                </div> -->
+                <div class="mb-3">
+                    <label class="form-label" for="price">Doctor Name:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">Dr </span>
+                        <input type="text" class="form-control" id="price" placeholder="Ramesh" aria-label="price"
+                            aria-describedby="price-label" name="vect[doctor]" required>
+                        <div class="valid-feedback">looks good</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="vect[description]"
+                        required></textarea>
+                    <div class="valid-feedback">looks good</div>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="file" id="image" name="image" multiple>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Add vect</button>
+                </div>
+            </form>

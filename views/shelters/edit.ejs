@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">Edit shelters</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/shelters/<%=shelter._id%>?_method=PUT" method="POST" novalidate class="validated-form"
+                enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="shelter[title]" value="<%=shelter.title %>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="shelter[location]"
+                        value="<%=shelter.location %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Add images</label>
+                    <input type="file" name="image" id="image" multiple>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Shelter Capacity</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">.</span>
+                        <input type="text" class="form-control" id="price" placeholder="50" aria-label="price"
+                            aria-describedby="price-label" name="shelter[capacity]" value="<%=shelter.capacity %>"
+                            required>\
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="shelter[description]"
+                        required><%= shelter.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <% shelter.images.forEach(function(img, i) { %>
+                    <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                    <div class="form-check-inline">
+                        <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                    </div>
+                    <label for="image-<%=i%>">Delete?</label>
+                    <% })%>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-info">Update Shelter</button>
+        </div>
+        </form>
+        <a href="/shelters/<%= shelter._id%>">Back To shelters</a>
+
+    </div>
+    </div>

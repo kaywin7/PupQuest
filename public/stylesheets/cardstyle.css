@@ -1,0 +1,18 @@
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+.cim {
+    border-radius: 25px;
+}
+
+img {
+    border-radius: 25px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background-color: #d8e2dc;
+}
