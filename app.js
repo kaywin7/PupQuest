@@ -19,7 +19,7 @@ const reviewRoutes = require('./routes/reviews')
 const vectRoutes = require('./routes/vect')
 const vreviewRoutes = require('./routes/vreviews')
 const mongoSanitize = require('express-mongo-sanitize');
-const dbUrl = 'mongodb://127.0.0.1:27017/pup-quest2' //process.env.DB_URL;
+const dbUrl = process.env.DB_URL;
 const MongoDBStore = require("connect-mongo")(session);
 mongoose.connect(dbUrl);
 const db = mongoose.connection;
